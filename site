@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комбинаториканың даму тарихы</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 50px;
+        }
+        .timeline-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 50px 0;
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .timeline-wrapper {
+            position: relative;
+            width: 1200px; /* Лентаның жалпы ұзындығы */
+            height: 300px;
+            margin: 0 auto;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #bdc3c7;
+            transform: translateY(-50%);
+        }
+        .marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 20px;
+            background-color: #7f8c8d;
+        }
+        .marker-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        .event-box {
+            position: absolute;
+            width: 160px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+            transition: transform 0.2s, background-color 0.2s;
+            transform: translateX(-50%);
+        }
+        .event-box:hover {
+            transform: translateX(-50%) scale(1.05);
+            background-color: #2980b9;
+        }
+        .event-box.top {
+            bottom: 60%;
+        }
+        .event-box.bottom {
+            top: 60%;
+        }
+        .event-box::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #3498db;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .event-box.top::after {
+            bottom: -20px;
+        }
+        .event-box.bottom::after {
+            top: -20px;
+        }
+        
+        /* Ақпарат шығатын терезе */
+        #info-panel {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            min-height: 150px;
+            display: none;
+            border-left: 5px solid #3498db;
+        }
+        #info-year {
+            font-size: 1.2em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #info-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        #info-text {
+            line-height: 1.6;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Лента времени "История развития комбинаторики"</h1>
+
+    <div class="timeline-container">
+        <div class="timeline-wrapper" id="timeline">
+            <div class="timeline-line"></div>
+            <script>
+                const minYear = 400;
+                const maxYear = 2000;
+                const wrapper = document.getElementById('timeline');
+                
+                // Ғасыр белгілерін қосу (500, 1000, 1500, 2000)
+                const markers = [500, 1000, 1500, 2000];
+                markers.forEach(year => {
+                    let percent = ((year - minYear) / (maxYear - minYear)) * 100;
+                    
+                    let markerDiv = document.createElement('div');
+                    markerDiv.className = 'marker';
+                    markerDiv.style.left = percent + '%';
+                    
+                    let labelDiv = document.createElement('div');
+                    labelDiv.className = 'marker-label';
+                    labelDiv.innerText = year;
+                    markerDiv.appendChild(labelDiv);
+                    
+                    wrapper.appendChild(markerDiv);
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="info-panel">
+        <div id="info-year"></div>
+        <div id="info-title"></div>
+        <div id="info-text"></div>
+    </div>
+
+    <script>
+        // Суреттегі мәтіндерден алынған оқиғалар базасы
+        const events = [
+            {
+                year: 473,
+                title: "Ежелгі кезең",
+                text: "Комбинаториканың «Мүмкін болатын N элементтен m элементті алудың қанша тәсілі бар?» деген классикалық есебі шамамен б.з.д. IV ғасырдан бастап ежелгі Үндістанның сутраларында кездеседі. Үнді математиктері биномдық коэффициенттерді және олардың Ньютон биномымен байланысын алғашқылардың бірі болып ашқан көрінеді. Б.з.д. II ғасырда үндістер n дәрежелі барлық биномдық коэффициенттердің қосындысы 2^n-ге тең екенін білген.",
+                position: "top"
+            },
+            {
+                year: 1148,
+                title: "Орта ғасырлар",
+                text: "Батыс Еуропада комбинаторика саласындағы бірқатар маңызды жаңалықтарды екі еврей зерттеушісі — Авраам ибн Эзра (1089-1164) және Леви бен Гершом ашты. XII ғасырда үнді математигі Бхаскара өзінің негізгі «Лилавати» еңбегінде алмастырулар мен терулерге, оның ішінде қайталанбалы алмастыруларға байланысты есептерді егжей-тегжейлі зерттеді. Леви бен Гершом (1288-1344) Еуропада бірінші болып терулер мен алмастырулар санын есептеуге арналған негізгі комбинаторлық формулаларды қорытып шығарды. Ал Фибоначчи (XIII ғасыр) «Абак кітабында» бірнеше комбинаторлық есептерді қамтыды.",
+                position: "bottom"
+            },
+            {
+                year: 1665,
+                title: "Комбинаторика ұғымының енгізілуі",
+                text: "Жаңа ғылымның терминологиясы қалыптаса бастады. «Теру» (combination) термині алғаш рет Паскальда кездеседі (1653 жылы жазылып, 1665 жылы жарияланған). Бұл кезең комбинаториканың дамуына үлкен серпін берген маңызды қадамдардың бірі болды.",
+                position: "top"
+            },
+            {
+                year: 1666,
+                title: "«Комбинаторлық өнер туралы толғаныстар»",
+                text: "Комбинаториканы ғылымның дербес саласы ретінде алғаш рет неміс философы әрі математигі Г. Лейбниц қарастырды, ол 1666 жылы «Комбинаторлық өнер туралы толғаныстар» атты еңбегін жариялады. Онда алғаш рет «комбинаторика» термині кездеседі. Расында, Лейбниц бұл терминді бүкіл шекті математиканы және тіпті логиканы қоса отырып, тым кең мағынада түсінді.",
+                position: "bottom"
+            },
+            {
+                year: 1713,
+                title: "«Болжам өнері»",
+                text: "Лейбництің шәкірті, ықтималдықтар теориясының негізін қалаушылардың бірі Якоб Бернулли өзінің «Болжам өнері» (1713 ж. жарық көрді) атты кітабында комбинаторика бойынша көптеген мәліметтерді баяндады. Шығарма 4 бөліктен тұрды, олардың екінші бөлігі комбинаторикаға арналған. Онда n элементтен пермутациялар саны үшін, комбинациялар саны қайталанбауымен және қайталанумен есептелетін формулалар бар.",
+                position: "top"
+            },
+            {
+                year: 1861,
+                title: "Джеймс Джозеф Сильвестр",
+                text: "1861 жылы Джеймс Джозеф Сильвестр тактиканы элементтердің бір-біріне қатысты орналасуын зерттейтін математика бөлімі ретінде анықтады. Оның пікірінше, бұл бөлімнің құрамына топтар теориясы, комбинаторлық анализ және сандар теориясы кіреді. Сильвестрдің ойларын оның досы Артур Кэли де бөлісті.",
+                position: "bottom"
+            },
+            {
+                year: 1940,
+                title: "Қазіргі комбинаториканың дамуы",
+                text: "1940-шы жылдары Рамсей теориясы қалыптасты. Қазіргі комбинаториканың атасы ретінде Пал Эрдөш есептеледі, ол комбинаторикаға ықтималдықтық талдауды енгізді. ХХ ғасырдың екінші жартысында компьютерлер пайда болған кезде, шекті математикаға және әсіресе комбинаторикаға қызығушылық айтарлықтай артты.",
+                position: "top"
+            },
+            {
+                year: 1964,
+                title: "Дж.-К. Рота",
+                text: "Дж.-К. Рота ХХ ғасырда комбинаториканы қуатты түрде алгебраландыру процесіне ұшыратты, бұл Дж.-К. Рота (1964) және кейіннен Р. Стенли еңбектері арқылы жүзеге асты. Олар ішінара тәртіптелген жиындарды, Мебиус функциясының қасиеттерін зерттеп, комбинаторлық зерттеу әдістерін байытуға және оны қазіргі математикаға қосымша интеграциялауға ықпал етті.",
+                position: "bottom"
+            }
+        ];
+
+        // Оқиғаларды лентаға орналастыру
+        events.forEach((ev) => {
+            // Егер жыл 400-ден кіші болса немесе 2000-нан асса шектеу
+            let displayYear = Math.max(minYear, Math.min(ev.year, maxYear));
+            let percent = ((displayYear - minYear) / (maxYear - minYear)) * 100;
+            
+            let box = document.createElement('div');
+            box.className = `event-box ${ev.position}`;
+            box.style.left = percent + '%';
+            box.innerHTML = `<strong>${ev.year}</strong><br>${ev.title}`;
+            
+            // Басқан кезде ақпарат шығару
+            box.onclick = function() {
+                document.getElementById('info-panel').style.display = 'block';
+                document.getElementById('info-year').innerText = ev.year + " жыл";
+                document.getElementById('info-title').innerText = ev.title;
+                document.getElementById('info-text').innerText = ev.text;
+                
+                // Барлық блоктардың түсін қайтару, таңдалғанын ерекшелеу
+                document.querySelectorAll('.event-box').forEach(b => b.style.backgroundColor = '#3498db');
+                box.style.backgroundColor = '#e74c3c'; // Таңдалған элемент түсі (қызыл)
+            };
+            
+            wrapper.appendChild(box);
+        });
+    </script>
+</body>
+</html>
