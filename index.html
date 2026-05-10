@@ -1,239 +1,255 @@
+```html
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Комбинаториканың даму тарихы</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Комбинаториканың даму тарихы</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #1f2937;
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
     }
 
-    header {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
+    body{
+        background:#f4f7fb;
+        color:#222;
+        overflow-x:hidden;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 34px;
+    header{
+        background:linear-gradient(135deg,#0f4c81,#1e88e5);
+        color:white;
+        padding:40px 20px;
+        text-align:center;
     }
 
-    header p {
-      margin-top: 15px;
-      font-size: 18px;
-      opacity: 0.9;
+    header h1{
+        font-size:42px;
+        margin-bottom:10px;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+    header p{
+        font-size:18px;
+        opacity:0.9;
     }
 
-    .intro {
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      line-height: 1.7;
-      margin-bottom: 40px;
+    .timeline-container{
+        width:90%;
+        max-width:1200px;
+        margin:60px auto;
+        position:relative;
     }
 
-    .timeline {
-      position: relative;
-      margin: 40px 0;
-      padding-left: 30px;
-      border-left: 4px solid #2563eb;
+    .timeline-line{
+        position:absolute;
+        top:100px;
+        left:0;
+        width:100%;
+        height:6px;
+        background:#1e88e5;
+        border-radius:10px;
     }
 
-    .event {
-      background: white;
-      margin-bottom: 25px;
-      padding: 22px;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      position: relative;
-      transition: 0.3s;
+    .timeline{
+        display:flex;
+        justify-content:space-between;
+        position:relative;
+        flex-wrap:wrap;
     }
 
-    .event:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    .event{
+        width:220px;
+        position:relative;
+        margin-top:40px;
+        text-align:center;
     }
 
-    .event::before {
-      content: "";
-      position: absolute;
-      left: -43px;
-      top: 25px;
-      width: 18px;
-      height: 18px;
-      background: #2563eb;
-      border: 4px solid white;
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px #2563eb;
+    .circle{
+        width:26px;
+        height:26px;
+        background:#ff9800;
+        border:5px solid white;
+        border-radius:50%;
+        margin:0 auto 20px;
+        position:relative;
+        z-index:2;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
     }
 
-    .year {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
+    .year{
+        font-size:22px;
+        font-weight:bold;
+        color:#0f4c81;
+        margin-bottom:15px;
     }
 
-    .event h2 {
-      margin: 10px 0;
-      color: #1e3a8a;
-      font-size: 22px;
+    .card{
+        background:white;
+        padding:20px;
+        border-radius:18px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        transition:0.3s;
+        min-height:240px;
     }
 
-    .event p {
-      line-height: 1.7;
-      font-size: 16px;
-      margin: 0;
+    .card:hover{
+        transform:translateY(-10px);
+        box-shadow:0 8px 25px rgba(0,0,0,0.15);
     }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #1e293b;
-      color: white;
-      margin-top: 50px;
+    .card h3{
+        color:#1e88e5;
+        margin-bottom:10px;
+        font-size:20px;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 26px;
-      }
-
-      .timeline {
-        padding-left: 22px;
-      }
-
-      .event::before {
-        left: -35px;
-      }
+    .card p{
+        font-size:15px;
+        line-height:1.6;
     }
-  </style>
+
+    footer{
+        margin-top:80px;
+        padding:30px;
+        text-align:center;
+        background:#0f4c81;
+        color:white;
+    }
+
+    @media(max-width:1100px){
+        .timeline{
+            flex-direction:column;
+            align-items:center;
+        }
+
+        .timeline-line{
+            display:none;
+        }
+
+        .event{
+            width:90%;
+            margin-bottom:40px;
+        }
+    }
+</style>
 </head>
 
 <body>
 
-  <header>
+<header>
     <h1>Комбинаториканың даму тарихы</h1>
-    <p>Математиканың маңызды салаларының қалыптасу кезеңдері</p>
-  </header>
+    <p>Ежелгі дәуірден қазіргі заманға дейінгі даму кезеңдері</p>
+</header>
 
-  <div class="container">
+<section class="timeline-container">
 
-    <section class="intro">
-      <p>
-        Комбинаторика — объектілерді таңдау, орналастыру және олардың мүмкін болатын
-        комбинацияларын санаумен айналысатын математиканың маңызды бөлімі. Бұл сала
-        ықтималдықтар теориясында, информатикада, криптографияда, алгоритмдерде және
-        қазіргі жасанды интеллект жүйелерінде кеңінен қолданылады.
-      </p>
-    </section>
+    <div class="timeline-line"></div>
 
-    <section class="timeline">
+    <div class="timeline">
 
-      <div class="event">
-        <span class="year">Б.з.д. IV ғасыр</span>
-        <h2>Ежелгі кезең</h2>
-        <p>
-          Комбинаторикаға ұқсас алғашқы есептер ежелгі Үндістанда кездескен.
-          Үнді математиктері орналастыру, теру және биномдық коэффициенттерге
-          байланысты идеяларды зерттей бастаған.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">Б.з.д. 400</div>
+            <div class="card">
+                <h3>Алғашқы бастау</h3>
+                <p>
+                    Ежелгі Үндістан мен Қытайда комбинаторика элементтері пайда болды.
+                    Ғалымдар сандарды орналастыру мен комбинацияларды зерттей бастады.
+                </p>
+            </div>
+        </div>
 
-      <div class="event">
-        <span class="year">XII–XIII ғасырлар</span>
-        <h2>Орта ғасырлар</h2>
-        <p>
-          Бұл кезеңде Бхаскара, Авраам ибн Эзра, Леви бен Гершом және Фибоначчи
-          сияқты ғалымдар алмастырулар мен терулерге байланысты есептерді қарастырды.
-          Комбинаторикалық формулалар біртіндеп нақты математикалық түрге келе бастады.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">473</div>
+            <div class="card">
+                <h3>Үнді математиктері</h3>
+                <p>
+                    Өлең құрылымдарындағы буындардың әртүрлі орналасуын есептеу әдістері қолданылды.
+                </p>
+            </div>
+        </div>
 
-      <div class="event">
-        <span class="year">1653–1665 жылдар</span>
-        <h2>Комбинация ұғымының дамуы</h2>
-        <p>
-          Блез Паскаль еңбектерінде «combination» ұғымы қолданыла бастады.
-          Бұл кезең комбинаториканың жеке математикалық бағыт ретінде дамуына
-          үлкен әсер етті.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">1148</div>
+            <div class="card">
+                <h3>Бхаскара II</h3>
+                <p>
+                    Орналастырулар мен алмастыруларға байланысты есептерді зерттеді.
+                </p>
+            </div>
+        </div>
 
-      <div class="event">
-        <span class="year">1666 жыл</span>
-        <h2>Лейбниц және комбинаторика</h2>
-        <p>
-          Неміс ғалымы Готфрид Вильгельм Лейбниц «Комбинаторлық өнер туралы»
-          еңбегін жариялады. Осы еңбекте комбинаторика жеке ғылым саласы ретінде
-          қарастырылды.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">1665</div>
+            <div class="card">
+                <h3>Блез Паскаль</h3>
+                <p>
+                    Ықтималдықтар теориясының негіздерін зерттеп,
+                    комбинаторикалық әдістерді қолданды.
+                </p>
+            </div>
+        </div>
 
-      <div class="event">
-        <span class="year">1713 жыл</span>
-        <h2>Якоб Бернуллидің еңбегі</h2>
-        <p>
-          Якоб Бернулли «Болжам өнері» атты еңбегінде ықтималдықтар теориясы мен
-          комбинаторика арасындағы байланысты көрсетті. Бұл кітапта алмастырулар,
-          терулер және қайталанатын комбинациялар туралы мәліметтер берілді.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">1666</div>
+            <div class="card">
+                <h3>Лейбниц</h3>
+                <p>
+                    «Комбинаторика өнері туралы» еңбегін жариялап,
+                    ғылымның дамуына жол ашты.
+                </p>
+            </div>
+        </div>
 
-      <div class="event">
-        <span class="year">XIX ғасыр</span>
-        <h2>Комбинаториканың кеңеюі</h2>
-        <p>
-          XIX ғасырда Джеймс Джозеф Сильвестр және Артур Кэли сияқты математиктер
-          комбинаториканы топтар теориясы, сандар теориясы және алгебрамен
-          байланыстыра зерттеді.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">1713</div>
+            <div class="card">
+                <h3>Бернулли</h3>
+                <p>
+                    Комбинаторика ықтималдықтар теориясының негізгі бөлігіне айналды.
+                </p>
+            </div>
+        </div>
 
-      <div class="event">
-        <span class="year">XX ғасыр</span>
-        <h2>Қазіргі комбинаториканың дамуы</h2>
-        <p>
-          XX ғасырда Рамсей теориясы, графтар теориясы және ықтималдықтық әдістер
-          дамыды. Пал Эрдөш комбинаторикаға үлкен үлес қосты және қазіргі
-          комбинаториканың дамуына әсер етті.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">1861</div>
+            <div class="card">
+                <h3>Артур Кэли</h3>
+                <p>
+                    Графтар теориясын дамытып,
+                    комбинаториканың жаңа бағытын қалыптастырды.
+                </p>
+            </div>
+        </div>
 
-      <div class="event">
-        <span class="year">XX ғасырдың екінші жартысы</span>
-        <h2>Компьютерлер дәуірі</h2>
-        <p>
-          Компьютерлердің пайда болуымен комбинаторикаға қызығушылық артты.
-          Бұл сала алгоритмдерде, деректер құрылымында, жасанды интеллектте,
-          кодтау теориясында және ақпараттық қауіпсіздікте кең қолданыла бастады.
-        </p>
-      </div>
+        <div class="event">
+            <div class="circle"></div>
+            <div class="year">1940</div>
+            <div class="card">
+                <h3>Қазіргі кезең</h3>
+                <p>
+                    Комбинаторика информатика, логика және кибернетикамен тығыз байланыса бастады.
+                </p>
+            </div>
+        </div>
 
-    </section>
+    </div>
+</section>
 
-  </div>
-
-  <footer>
-    <p>© 2026 Комбинаториканың даму тарихы</p>
-  </footer>
+<footer>
+    © 2026 Комбинаториканың даму тарихы
+</footer>
 
 </body>
 </html>
+```
