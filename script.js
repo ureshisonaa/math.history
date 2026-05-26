@@ -1,149 +1,261 @@
 const topics = [
-  {
-    title: "1-тақырып. Кездейсоқ төртбұрыш",
-    theory: `
-      Кездейсоқ төртбұрыштың ішкі бұрыштарының қосындысы 360°-қа тең.
-      Егер төртбұрыш шеңберге сырттай сызылса, қарсы жатқан қабырғаларының қосындысы тең болады:
-      a + c = b + d.
-      Егер төртбұрыш шеңберге іштей сызылса, қарсы жатқан бұрыштарының қосындысы 180° болады.
-      Ауданы диагональдары арқылы: S = 1/2 · d1 · d2 · sinφ.
-    `,
-    example: `
-      Мысал: Төртбұрыштың диагональдары 18 см және 24 см, олардың арасындағы бұрыш 30°.
-      S = 1/2 · 18 · 24 · sin30° = 108 см².
-    `
-  },
-  {
-    title: "2-тақырып. Параллелограмм",
-    theory: `
-      Қарама-қарсы қабырғалары параллель болатын төртбұрыш параллелограмм деп аталады.
-      Қарама-қарсы қабырғалары және бұрыштары тең.
-      Іргелес бұрыштарының қосындысы 180°.
-      Ауданы: S = a · h немесе S = a · b · sinα.
-    `,
-    example: `
-      Мысал: AB = 6 см, AD = 9 см, бұрыш 60°.
-      S = 6 · 9 · sin60° = 27√3 см².
-    `
-  },
-  {
-    title: "3-тақырып. Ромб",
-    theory: `
-      Барлық қабырғалары тең болатын параллелограмм ромб деп аталады.
-      Диагональдары өзара перпендикуляр және бұрыштарды қақ бөледі.
-      Периметрі: P = 4a.
-      Ауданы: S = a · h немесе S = 1/2 · d1 · d2.
-    `,
-    example: `
-      Мысал: Диагональдары 6 см және 8 см.
-      S = 1/2 · 6 · 8 = 24 см².
-    `
-  },
-  {
-    title: "4-тақырып. Тік төртбұрыш",
-    theory: `
-      Барлық бұрыштары тік болатын параллелограмм тік төртбұрыш деп аталады.
-      Қарама-қарсы қабырғалары тең, диагональдары тең.
-      Периметрі: P = 2(a + b).
-      Ауданы: S = a · b.
-      Диагоналі: d² = a² + b².
-    `,
-    example: `
-      Мысал: Қабырғалары 12 см және 10 см.
-      S = 12 · 10 = 120 см².
-    `
-  },
-  {
-    title: "5-тақырып. Шаршы",
-    theory: `
-      Барлық қабырғалары тең тік төртбұрыш шаршы деп аталады.
-      Барлық бұрыштары 90°.
-      Периметрі: P = 4a.
-      Ауданы: S = a².
-      Диагоналі: d = a√2.
-    `,
-    example: `
-      Мысал: Диагоналі 8 см.
-      a = 8 / √2 = 4√2.
-      P = 4 · 4√2 = 16√2 см.
-    `
-  },
-  {
-    title: "6-тақырып. Трапеция",
-    theory: `
-      Екі қабырғасы ғана параллель болатын төртбұрыш трапеция деп аталады.
-      Орта сызығы: m = (a + b) / 2.
-      Ауданы: S = ((a + b) / 2) · h.
-      Теңбүйірлі трапецияны шеңберге іштей сызуға болады.
-    `,
-    example: `
-      Мысал: Табандары 7 см және 17 см, биіктігі 12 см.
-      S = (7 + 17) / 2 · 12 = 144 см².
-    `
-  },
-  {
-    title: "7-тақырып. Көпбұрыштар",
-    theory: `
-      n-бұрыштың ішкі бұрыштарының қосындысы:
-      S = 180° · (n - 2).
-      Дұрыс көпбұрыштың бір ішкі бұрышы:
-      α = 180° · (n - 2) / n.
-      Сыртқы бұрыштарының қосындысы әрқашан 360°.
-      Диагональдар саны: D = n(n - 3) / 2.
-    `,
-    example: `
-      Мысал: Алтыбұрыштың ішкі бұрыштарының қосындысы:
-      S = 180° · (6 - 2) = 720°.
-    `
-  }
-];
 
-function generateTest(topicIndex) {
-  let html = "";
-  for (let i = 1; i <= 20; i++) {
-    html += `
-      <div class="question">
-        <p><b>${i}.</b> ${topics[topicIndex].title} бойынша есеп №${i}</p>
-        <p>A) 10 &nbsp; B) 20 &nbsp; C) 30 &nbsp; D) 40 &nbsp; E) 50</p>
-        <p class="answer">Жауабы: A</p>
-      </div>
-    `;
-  }
-  return html;
+{
+title:"Кездейсоқ төртбұрыш",
+
+theory:`
+Кездейсоқ төртбұрыштың ішкі бұрыштарының қосындысы 360° болады.
+
+Егер төртбұрыш шеңберге сырттай сызылса:
+a + c = b + d
+
+Егер төртбұрыш шеңберге іштей сызылса:
+α + γ = 180°
+
+Төртбұрыштың ауданы:
+S = 1/2 · d₁ · d₂ · sinφ
+`,
+
+example:{
+problem:"Диагональдары 18 см және 24 см, бұрышы 30°.",
+steps:[
+"S = 1/2 · d₁ · d₂ · sinφ",
+"S = 1/2 · 18 · 24 · sin30°",
+"S = 108 см²"
+]
+},
+
+tests:[
+{
+q:"Төртбұрыштың ішкі бұрыштарының қосындысы?",
+options:["180°","270°","360°","540°"],
+answer:"360°"
+},
+{
+q:"Іштей сызылған төртбұрышта қарсы бұрыштар қосындысы?",
+options:["90°","120°","180°","360°"],
+answer:"180°"
 }
+]
+},
+
+{
+title:"Параллелограмм",
+
+theory:`
+Параллелограмм — қарама-қарсы қабырғалары параллель болатын төртбұрыш.
+
+Қасиеттері:
+• Қарама-қарсы қабырғалары тең
+• Қарама-қарсы бұрыштары тең
+• Диагональдары қақ бөлінеді
+
+Формулалар:
+P = 2(a+b)
+
+S = a·h
+
+S = a·b·sinα
+`,
+
+example:{
+problem:"a = 6 см, b = 9 см, α = 60°",
+steps:[
+"S = a·b·sinα",
+"S = 6·9·sin60°",
+"S = 27√3 см²"
+]
+},
+
+tests:[
+{
+q:"Параллелограмм периметрі?",
+options:["P=4a","P=2(a+b)","P=a+b","P=ab"],
+answer:"P=2(a+b)"
+},
+{
+q:"Іргелес бұрыштар қосындысы?",
+options:["90°","120°","180°","360°"],
+answer:"180°"
+}
+]
+}
+
+];
 
 const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 
-topics.forEach((topic, index) => {
-  const btn = document.createElement("button");
-  btn.textContent = topic.title;
-  btn.onclick = () => showTopic(index);
-  menu.appendChild(btn);
+topics.forEach((topic,index)=>{
+
+const btn = document.createElement("button");
+
+btn.className = "menu-btn";
+
+btn.textContent = `${index+1}. ${topic.title}`;
+
+btn.onclick = ()=>showTopic(index);
+
+menu.appendChild(btn);
+
 });
 
-function showTopic(index) {
-  const topic = topics[index];
-  content.innerHTML = `
-    <div class="card">
-      <h2>${topic.title}</h2>
-    </div>
+function generateTests(topic){
 
-    <div class="card">
-      <h3>Теориялық блок</h3>
-      <p>${topic.theory}</p>
-    </div>
+let html = "";
 
-    <div class="card">
-      <h3>Есеп шығару мысалы</h3>
-      <p>${topic.example}</p>
-    </div>
+topic.tests.forEach((test,index)=>{
 
-    <div class="card">
-      <h3>Тест сұрақтары</h3>
-      ${generateTest(index)}
-    </div>
-  `;
+html += `
+
+<div class="question" id="q-${index}">
+
+<p><b>${index+1}-сұрақ.</b> ${test.q}</p>
+
+<div class="options">
+
+${test.options.map(option=>`
+
+<label class="option">
+
+<input type="radio" name="q-${index}" value="${option}">
+
+${option}
+
+</label>
+
+`).join("")}
+
+</div>
+
+<div class="feedback" id="fb-${index}"></div>
+
+</div>
+
+`;
+
+});
+
+return html;
+
+}
+
+function showTopic(index){
+
+const topic = topics[index];
+
+content.innerHTML = `
+
+<div class="card">
+
+<h2>${topic.title}</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Теориялық блок</h3>
+
+<div class="formula">
+
+${topic.theory}
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Мысал есеп</h3>
+
+<p><b>${topic.example.problem}</b></p>
+
+${topic.example.steps.map((step,i)=>`
+
+<div class="example-step">
+
+${i+1}-қадам: ${step}
+
+</div>
+
+`).join("")}
+
+</div>
+
+<div class="card">
+
+<h3>Тест</h3>
+
+<button class="check-btn" onclick="checkAnswers(${index})">
+
+Тексеру
+
+</button>
+
+<div class="result" id="result"></div>
+
+${generateTests(topic)}
+
+</div>
+
+`;
+
+}
+
+function checkAnswers(topicIndex){
+
+const topic = topics[topicIndex];
+
+let score = 0;
+
+topic.tests.forEach((test,index)=>{
+
+const selected = document.querySelector(`input[name="q-${index}"]:checked`);
+
+const feedback = document.getElementById(`fb-${index}`);
+
+const question = document.getElementById(`q-${index}`);
+
+question.classList.remove("correct","wrong");
+
+if(selected){
+
+if(selected.value === test.answer){
+
+score++;
+
+question.classList.add("correct");
+
+feedback.innerHTML = "Дұрыс!";
+
+}else{
+
+question.classList.add("wrong");
+
+feedback.innerHTML = `
+Қате. Дұрыс жауап: <b>${test.answer}</b>
+`;
+
+}
+
+}else{
+
+question.classList.add("wrong");
+
+feedback.innerHTML = "Жауап таңдалмады";
+
+}
+
+});
+
+const result = document.getElementById("result");
+
+result.style.display = "block";
+
+result.innerHTML = `
+<h3>Нәтиже: ${score}/${topic.tests.length}</h3>
+`;
+
 }
 
 showTopic(0);
