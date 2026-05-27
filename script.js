@@ -4,16 +4,104 @@ const topics = [
 title:"Кездейсоқ төртбұрыш",
 
 theory:`
-Кездейсоқ төртбұрыштың ішкі бұрыштарының қосындысы 360° болады.
+<div class="card">
 
-Егер төртбұрыш шеңберге сырттай сызылса:
+<h2>Кездейсоқ төртбұрыштың қасиеттері</h2>
+
+<p>
+1) Ішкі бұрыштарының қосындысы 360°:
+</p>
+
+<div class="formula">
+α + β + γ + θ = 360°
+</div>
+
+<img src="images/quad-properties-full.png" class="theory-img">
+
+<br><br>
+
+<p>
+2) Егер төртбұрыш шеңберге сырттай сызылса,
+онда оның қарсы жатқан қабырғаларының
+қосындысы тең болады:
+</p>
+
+<div class="formula">
 a + c = b + d
+</div>
 
-Егер төртбұрыш шеңберге іштей сызылса:
+<img src="images/quad-outside-circle.png" class="theory-img">
+
+<br><br>
+
+<p>
+3) Егер төртбұрыш шеңберге іштей сызылса,
+онда оның қарсы жатқан бұрыштарының
+қосындысы 180°-қа тең болады:
+</p>
+
+<div class="formula">
 α + γ = 180°
+<br>
+β + θ = 180°
+</div>
 
-Төртбұрыштың ауданы:
+<img src="images/quad-inside-circle.png" class="theory-img">
+
+</div>
+
+<div class="card">
+
+<h2>Кездейсоқ төртбұрыштың ауданы</h2>
+
+<p>
+1) Диагональдар мен олардың арасындағы бұрыш арқылы:
+</p>
+
+<div class="formula">
 S = 1/2 · d₁ · d₂ · sinφ
+</div>
+
+<img src="images/quad-area-diagonal.png" class="theory-img">
+
+<br><br>
+
+<p>
+2) Төртбұрышқа іштей сызылған шеңбердің
+радиусы мен жартылай периметр арқылы:
+</p>
+
+<div class="formula">
+S = p · r
+</div>
+
+<div class="formula">
+p = (a + b + c + d) / 2
+</div>
+
+<div class="formula">
+r — іштей сызылған шеңбер радиусы
+</div>
+
+<img src="images/quad-area-radius.png" class="theory-img">
+
+<br><br>
+
+<p>
+3) Шеңберге іштей сызылған төртбұрыштың ауданы:
+</p>
+
+<div class="formula">
+S = √((p-a)(p-b)(p-c)(p-d))
+</div>
+
+<div class="formula">
+p = (a + b + c + d) / 2
+</div>
+
+<img src="images/quad-area-circle.png" class="theory-img">
+
+</div>
 `,
 
 example:{
