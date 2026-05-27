@@ -184,5 +184,22 @@ main{
 .hero h1{
     font-size:26px;
 }
+.theory-img{
+    width:100%;
+    max-width:500px;
+    display:block;
+    margin:20px auto;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.test-img{
+    width:100%;
+    max-width:420px;
+    display:block;
+    margin:15px auto;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.12);
+}
 
 }
